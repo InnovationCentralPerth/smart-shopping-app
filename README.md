@@ -1,6 +1,6 @@
-# Smart Shop
+# Smart Shopping App
 
-An AI-assisted supermarket shopping simulator with in-store navigation. Built around a Coles supermarket layout, it lets you build a trolley using natural language or a photo of a handwritten list, then hands off to an in-store pathfinding navigator to guide you through the aisles.
+An AI-assisted supermarket shopping simulator with in-store navigation. Built around a Coles supermarket layout for CiscoLive 2026 Melbourne MasterTech Hackathon, it lets you build a trolley using natural language or a photo of a handwritten list, then hands off to an in-store pathfinding navigator to guide you through the aisles.
 
 ## Architecture
 
@@ -150,5 +150,5 @@ smart-shop/
 
 ## Authors
 
-- Smart Shop frontend & backend — Stanley (Amplified)
+- Smart Shop frontend & backend — Brian Ngo @baongo97 https://github.com/baongo97
 - Store navigator & A\* pathfinding — Basil Toufexis
