@@ -1,0 +1,86 @@
+<!-- 
+Author: Basil Toufexis 11/11/2025
+basil2fxs@gmail.com
+-->>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Lock Screen</title>
+    <link rel="stylesheet" href="lockscreen.css">
+</head>
+<body>
+    <div class="lockscreen-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="signal-icon">⚫⚫⚫⚫</span>
+                <span class="wifi-icon">📶</span>
+            </div>
+            <div class="notch"></div>
+            <div class="status-right">
+                <span class="battery-icon">🔋 100%</span>
+            </div>
+        </div>
+
+        <!-- Time Display -->
+        <div class="time-display">
+            <div class="time" id="currentTime">5:18</div>
+            <div class="date" id="currentDate">Tuesday, November 11</div>
+        </div>
+
+        <!-- Shopping Widget -->
+        <div class="widget-container" id="shoppingWidget">
+            <div class="widget-header">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' fill='%23e31837'%3E%3Ccircle cx='25' cy='25' r='23'/%3E%3Ctext x='25' y='32' font-size='24' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E" alt="Coles" class="widget-icon">
+                <span class="widget-title">Coles In-Store</span>
+            </div>
+            
+            <div class="widget-content">
+                <div class="next-item-section">
+                    <div class="item-emoji" id="itemEmoji">🥛</div>
+                    <div class="item-info">
+                        <div class="item-name" id="itemName">Coles Long Life Milk 1L</div>
+                        <div class="item-location" id="itemLocation">📍 AISLE 3C</div>
+                    </div>
+                </div>
+                
+                <div class="item-meta">
+                    <span class="item-price" id="itemPrice">$1.30</span>
+                    <span class="item-stock" id="itemStock">Stock: 78</span>
+                </div>
+
+                <button class="next-item-btn" id="nextItemBtn" onclick="moveToNextItem()">
+                    Next Item →
+                </button>
+            </div>
+
+            <div class="widget-footer">
+                <span class="items-remaining" id="itemsRemaining">2 of 3 items remaining</span>
+            </div>
+        </div>
+
+        <!-- Notification -->
+        <div class="notification" id="notification" style="display: none;">
+            <div class="notification-header">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' fill='%23e31837'%3E%3Ccircle cx='25' cy='25' r='23'/%3E%3Ctext x='25' y='32' font-size='24' text-anchor='middle' fill='white' font-family='Arial'%3EC%3C/text%3E%3C/svg%3E" class="notif-icon">
+                <span class="notif-app">COLES IN-STORE</span>
+                <span class="notif-time">now</span>
+            </div>
+            <div class="notif-title">Item Collected ✓</div>
+            <div class="notif-message" id="notifMessage">Coles Iodised Salt 500g collected</div>
+        </div>
+
+        <!-- Unlock Button -->
+        <div class="unlock-container">
+            <button class="unlock-btn" onclick="returnToApp()">
+                <div class="unlock-icon">🔓</div>
+                <div class="unlock-text">Unlock</div>
+            </button>
+        </div>
+    </div>
+
+    <script src="lockscreen.js"></script>
+</body>
+</html>

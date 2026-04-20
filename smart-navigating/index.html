@@ -1,0 +1,107 @@
+<!-- 
+Author: Basil Toufexis 11/11/2025
+basil2fxs@gmail.com
+-->>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coles In Store Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <header class="app-header">
+            <button class="back-btn">← Back</button>
+            <h1>Coles Melbourne</h1>
+            <button class="menu-btn" id="menuBtn">⋯</button>
+        </header>
+
+        <!-- Menu Popup -->
+        <div class="menu-popup" id="menuPopup" style="display: none;">
+            <div class="menu-overlay" onclick="closeMenu()"></div>
+            <div class="menu-content">
+                <button class="menu-item" onclick="goToLockScreen()">
+                    <span class="menu-icon">🔒</span>
+                    <span class="menu-label">Lock Screen</span>
+                </button>
+                <button class="menu-item menu-item-danger" onclick="closeMenu()">
+                    <span class="menu-icon">✕</span>
+                    <span class="menu-label">Cancel</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Shopping Mode Selection -->
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="fastest">⚡ Express Route</button>
+            <button class="mode-btn" data-mode="specials">🔍 Explore Specials</button>
+        </div>
+
+        <!-- Store Map -->
+        <div class="store-map-container">
+            <div class="map-controls">
+                <button class="zoom-btn" id="zoomIn">🔍+</button>
+                <button class="zoom-btn" id="zoomOut">🔍-</button>
+            </div>
+            <div id="storeMap" class="store-map"></div>
+        </div>
+
+        <!-- Map Stage (ensure this wraps your map image/canvas) -->
+        <div id="map-stage" class="map-stage">
+        <!-- your existing map img/canvas goes here -->
+        <!-- SVG overlay for routes -->
+        <svg id="route-layer" class="route-layer" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+            <!-- Arrow head -->
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3"
+                    orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z"></path>
+            </marker>
+
+            <!-- Chevron marker (placed mid-path for repeating chevrons) -->
+            <marker id="chevron" markerWidth="8" markerHeight="8" refX="4" refY="4"
+                    orient="auto" markerUnits="strokeWidth">
+                <path d="M1,1 L4,4 L1,7" fill="none" stroke-width="1.5"></path>
+            </marker>
+
+            <!-- Soft glow for main path -->
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="0" stdDeviation="2" flood-opacity="0.6"/>
+            </filter>
+            </defs>
+            <!-- we'll populate these groups from app.js -->
+            <g id="paths-group"></g>
+            <g id="waypoints-group"></g>
+        </svg>
+        </div>
+
+
+        <!-- Shopping List Drawer -->
+        <div class="shopping-drawer" id="shoppingDrawer">
+            <div class="drawer-handle"></div>
+            <div class="drawer-header">
+                <span class="section-label" id="currentSection">ITEMS</span>
+            </div>
+            
+            <div id="shoppingList" class="item-list"></div>
+
+            <!-- Reset Button -->
+            <button id="resetBtn" class="reset-btn">
+                🔄 Reset Shopping List
+            </button>
+
+            <!-- Finish Trip Button (hidden until all collected) -->
+            <button id="finishBtn" class="finish-btn" style="display: none;">
+                ✓ Finish Trip & Checkout
+            </button>
+        </div>
+
+        <!-- Hide Button REMOVED -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
